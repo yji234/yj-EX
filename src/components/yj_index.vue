@@ -8,7 +8,7 @@
         <div id="search">
           <div id="search_tu"></div>
           <div id="search_input">
-            <input type="text">
+            <input type="text" value="搜索">
           </div>
         </div>
         <div id="user"></div>
@@ -31,14 +31,53 @@
           <div class="fun_word">付款</div>
         </div>
       </div>
-
     </div>
+
     <!--'我的钱包'等功能-->
     <div id="moneyFun">
-
+      <div class="moneyFunSon">
+        <div class="moneyFunImg">
+          <img src="../assets/images/index/wdqb.png" alt="我的钱包">
+        </div>
+        <div class="moneyFunWord">我的钱包</div>
+      </div>
+      <div class="moneyFunSon">
+        <div class="moneyFunImg">
+          <img src="../assets/images/index/tbdh.png" alt="通宝兑换">
+        </div>
+        <div class="moneyFunWord">通宝兑换</div>
+      </div>
+      <div class="moneyFunSon">
+        <div class="moneyFunImg">
+          <img src="../assets/images/index/sqmg.png" alt="神奇米缸">
+        </div>
+        <div class="moneyFunWord">神奇米缸</div>
+      </div>
+      <div class="moneyFunSon">
+        <div class="moneyFunImg">
+          <img src="../assets/images/index/gqxt.png" alt="股权系统">
+        </div>
+        <div class="moneyFunWord">股权系统</div>
+      </div>
+      <div class="moneyFunSon">
+        <div class="moneyFunImg">
+          <img src="../assets/images/index/xhjy.png" alt="现货交易">
+        </div>
+        <div class="moneyFunWord">现货交易</div>
+      </div>
+      <div class="moneyFunSon">
+        <div class="moneyFunImg">
+          <img src="../assets/images/index/xfqf.png" alt="消费全返">
+        </div>
+        <div class="moneyFunWord">消费全返</div>
+      </div>
     </div>
+
+
     <!--账户余额-->
     <div id="balance">
+      <div class="balanceTop"></div>
+      <div class="balanceBot"></div>
 
     </div>
     <!--我的卡卷-->
@@ -128,6 +167,8 @@
     height: 40px;
     border: 1px solid #F55700;
     background-color: #F55700;
+    color: white;
+    font-size: 18px;
   }
   #yj_index>#header>#header_search>#search>#search_input>input:focus{
     border: 0px;
@@ -178,16 +219,47 @@
 
 
 
-
-
-
-
   #yj_index>#moneyFun{
     width: 750px;
     height: 410px;
-    background-color: gray;
+    background-color: white;
     margin-bottom: 18px;
   }
+  #yj_index>#moneyFun>.moneyFunSon{
+    width: 250px;
+    height: 205px;
+    /*background-color: darkcyan;*/
+    float: left;
+  }
+  #yj_index>#moneyFun>.moneyFunSon:nth-child(2n+1){
+    /*background-color: white;*/
+  }
+  #yj_index>#moneyFun>.moneyFunSon>.moneyFunImg{
+    width: 110px;
+    height: 110px;
+    /*background-color: antiquewhite;*/
+    float: left;
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+  #yj_index>#moneyFun>.moneyFunSon>.moneyFunWord{
+    width: 110px;
+    height: 40px;
+    /*background-color: saddlebrown;*/
+    float: left;
+    margin-left: 70px;
+    margin-top: 10px;
+    font-size: 24px;
+    color: darkgray;
+  }
+
+
+
+
+
+
+
+
   #yj_index>#balance{
     width: 750px;
     height: 485px;
