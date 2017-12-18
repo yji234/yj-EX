@@ -14,7 +14,22 @@
         <div id="user"></div>
       </div>
       <div id="header_fun">
-
+        <div class="fun">
+          <div class="fun_tu" id="recharge"></div>
+          <div class="fun_word">充值</div>
+        </div>
+        <div class="fun">
+          <div class="fun_tu" id="transfer_account"></div>
+          <div class="fun_word">转账</div>
+        </div>
+        <div class="fun">
+          <div class="fun_tu" id="recieve_account"></div>
+          <div class="fun_word">收款</div>
+        </div>
+        <div class="fun">
+          <div class="fun_tu" id="payment"></div>
+          <div class="fun_word">付款</div>
+        </div>
       </div>
 
     </div>
@@ -60,7 +75,7 @@
   #yj_index{
     width: 750px;
     height: 2318px;
-    background-color: silver;
+    background-color: #ECF0F7;
     margin: 0 auto;
   }
 
@@ -85,7 +100,7 @@
     width: 55px;
     height: 55px;
     margin-left: 18px;
-    background: url("../assets/images/index/erweima.png") no-repeat center;
+    background: url("../assets/images/index/index_photo.png") no-repeat center;
   }
   #yj_index>#header>#header_search>#search{
     width: 560px;
@@ -101,7 +116,7 @@
     margin-left: 10px;
     width: 40px;
     height: 50px;
-    background: url("../assets/images/index/search.png") no-repeat center;
+    background: url("../assets/images/index/index_search.png") no-repeat center;
   }
   #yj_index>#header>#header_search>#search>#search_input{
     margin-top: 3px;
@@ -114,16 +129,53 @@
     border: 1px solid #F55700;
     background-color: #F55700;
   }
+  #yj_index>#header>#header_search>#search>#search_input>input:focus{
+    border: 0px;
+    outline: none;  /*设置四个边框的样式*/
+  }
   #yj_index>#header>#header_search>#user{
     width: 55px;
     height: 55px;
-    background: url("../assets/images/index/user.png") no-repeat center;
+    background: url("../assets/images/index/index_user.png") no-repeat center;
   }
 
   #yj_index>#header>#header_fun{
     height: 178px;
-    background-color: darkgray;
   }
+  #yj_index>#header>#header_fun>.fun{
+    width: 80px;
+    height: 130px;
+    margin-right: 105px;
+    float: left;
+    margin-top: 48px;
+  }
+  #yj_index>#header>#header_fun>.fun:last-child{
+    margin-right: 0px;
+  }
+  #yj_index>#header>#header_fun>.fun:first-child{
+    margin-left: 60px;
+  }
+  #yj_index>#header>#header_fun>.fun>.fun_tu{
+    width: 80px;
+    height: 80px;
+  }
+  #yj_index>#header>#header_fun>.fun>.fun_tu#recharge{
+    background: url("../assets/images/index/index_recharge.png") no-repeat center;
+  }
+  #yj_index>#header>#header_fun>.fun>.fun_tu#transfer_account{
+    background: url("../assets/images/index/index_transfer_account.png") no-repeat center;
+  }
+  #yj_index>#header>#header_fun>.fun>.fun_tu#recieve_account{
+    background: url("../assets/images/index/index__recieve_account.png") no-repeat center;
+  }
+  #yj_index>#header>#header_fun>.fun>.fun_tu#payment{
+    background: url("../assets/images/index/index_payment.png") no-repeat center;
+  }
+  #yj_index>#header>#header_fun>.fun>.fun_word{
+    font-size: x-large;
+    color: white;
+  }
+
 
 
 
