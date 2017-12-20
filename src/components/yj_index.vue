@@ -81,7 +81,6 @@
       </div>
     </div>
 
-
     <!--账户余额-->
     <div class="balance">
       <div class="balanceTop">
@@ -126,20 +125,95 @@
           </div>
         </div>
       </div>
-
     </div>
+
+
     <!--我的卡卷-->
     <div class="card">
-
+      <div class="cardTop">
+        <img src="../assets/images/index/wdkj.png" alt="我的卡卷">
+        <p>我的卡卷</p>
+      </div>
+      <div class="cardBot">
+        <div class="cardBotSon">
+          <p>卡卷(个)</p>
+          <p>3</p>
+        </div>
+        <div class="cardBotSon">
+          <img src="../assets/images/index/kj1.png" alt="卡卷1">
+        </div>
+        <div class="cardBotSon">
+          <img src="../assets/images/index/kj2.png" alt="卡卷2">
+        </div>
+        <div class="cardBotSon">
+          <img src="../assets/images/index/kj3.png" alt="卡卷3">
+        </div>
+      </div>
     </div>
+
     <!--背景图-->
     <div class="bg">
-
+      <img src="../assets/images/index/bg.png" alt="背景图">
     </div>
+
     <!--我的消息-->
     <div class="message">
-
+      <div class="messageTop">
+        <img src="../assets/images/index/wdxx.png" alt="我的消息">
+        <p>我的消息</p>
+      </div>
+      <div class="messageBot">
+        <div class="messageBotSon">
+          <div class="messageBotSons">
+            <img src="../assets/images/index/mbzhedbh.png" alt="麦宝账户额度变化">
+          </div>
+          <div class="messageBotSons">
+            <div class="messageBotSonsLeft">
+              麦宝账户额度变化
+            </div>
+            <div class="messageBotSonsRight">
+              08-10 22:00
+            </div>
+          </div>
+          <div class="messageBotSons">
+            <p>麦宝账户增加10000元，请核对您的余额。</p>
+          </div>
+        </div>
+        <div class="messageBotSon">
+          <div class="messageBotSons">
+            <img src="../assets/images/index/spcxtz.png" alt="商品促销通知">
+          </div>
+          <div class="messageBotSons">
+            <div class="messageBotSonsLeft">
+              商品促销通知
+            </div>
+            <div class="messageBotSonsRight">
+              08-10 22:00
+            </div>
+          </div>
+          <div class="messageBotSons">
+            <p>麦宝账户增加10000元，请核对您的余额。</p>
+          </div>
+        </div>
+        <div class="messageBotSon">
+          <div class="messageBotSons">
+            <img src="../assets/images/index/xjzhedbh.png" alt="现金账户额度变化">
+          </div>
+          <div class="messageBotSons">
+            <div class="messageBotSonsLeft">
+              现金账户额度变化
+            </div>
+            <div class="messageBotSonsRight">
+              08-10 22:00
+            </div>
+          </div>
+          <div class="messageBotSons">
+            <p>现金账户增加10000元，请核对您的余额。</p>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </div>
 
 </template>
@@ -151,6 +225,11 @@
     data: function () {
       return {
           msg: 'Welcome to my App!'
+      }
+    },
+    methods: {
+      getData: function () {
+        
       }
     }
   }
@@ -324,10 +403,14 @@
 
   #yj_index>.balance>.balanceBot>.balanceBG{
     width: 345px;
-    height: 130px;
+    height: 128px;
     background-color: darkcyan;
     float: left;
     margin-bottom: 20px;
+
+    box-shadow:5px 5px 2px #ccc;
+    -moz-box-shadow:5px 5px 2px #ccc;
+    -webkit-box-shadow:5px 5px 2px #ccc;
   }
   #yj_index>.balance>.balanceBot>.balanceBG:nth-child(1){
     margin-top: 50px;
@@ -383,27 +466,136 @@
   }
 
 
-
-
-
-
-
+  /*我的卡卷*/
   #yj_index>.card{
     width: 750px;
     height: 304px;
-    background-color: gray;
+    background-color: white;
     margin-bottom: 20px;
   }
+  #yj_index>.card>.cardTop{
+    width: 750px;
+    height: 102px;
+    border-bottom: 2px solid darkgray;
+  }
+  #yj_index>.card>.cardTop>img,
+  #yj_index>.card>.cardTop>p{
+    float: left;
+    margin-top: 30px;
+    margin-left: 15px;
+  }
+  #yj_index>.card>.cardTop>p{
+    color: darkgray;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+
+  #yj_index>.card>.cardBot>.cardBotSon>p{
+    font-size: 26px;
+    font-weight: bold;
+  }
+  #yj_index>.card>.cardBot>.cardBotSon>p:first-child{
+    color: darkgray;
+  }
+  #yj_index>.card>.cardBot>.cardBotSon>p:last-child{
+    color: #f0450d;
+  }
+  #yj_index>.card>.cardBot>.cardBotSon{
+    width: 106px;
+    height: 75px;
+    /*background-color: saddlebrown;*/
+    margin-right: 45px;
+    float: left;
+    margin-top: 60px;
+  }
+  #yj_index>.card>.cardBot>.cardBotSon:nth-child(1){
+    margin-left: 100px;
+  }
+
+  /*背景图*/
   #yj_index>.bg{
     width: 750px;
     height: 225px;
     background-color: lemonchiffon;
     margin-bottom: 20px;
   }
+
+  /*底部信息*/
   #yj_index>.message{
     width: 750px;
     height: 510px;
-    background-color: gray;
+    background-color: white;
+  }
+  #yj_index>.message>.messageTop{
+    width: 750px;
+    height: 102px;
+    border-bottom: 2px solid darkgray;
+  }
+  #yj_index>.message>.messageTop>img,
+  #yj_index>.message>.messageTop>p{
+    float: left;
+    margin-top: 25px;
+    margin-left: 15px;
+  }
+  #yj_index>.message>.messageTop>p{
+    color: darkgray;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 33px;
+    margin-left: 6px;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon{
+    width: 706px;
+    height: 130px;
+    border-bottom: 2px solid darkgray;
+    margin-left: 22px;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon:last-child{
+    border-bottom: 0px;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon>.messageBotSons:nth-child(1){
+    width: 95px;
+    height: 95px;
+    background-color: sandybrown;
+    float: left;
+    margin-top: 20px;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon>.messageBotSons:nth-child(2),
+  #yj_index>.message>.messageBot>.messageBotSon>.messageBotSons:nth-child(3){
+    width: 600px;
+    height: 35px;
+    /*background-color: skyblue;*/
+    float: left;
+    margin-top: 22px;
+    margin-left: 10px;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon>.messageBotSons>p{
+    float: left;
+    line-height: 35px;
+    color: #a3a3a3;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon>.messageBotSons>.messageBotSonsLeft{
+    width: 230px;
+    height: 35px;
+    /*background-color: seagreen;*/
+    float: left;
+    margin-right: 215px;
+    font-size: 24px;
+    text-align: left;
+  }
+  #yj_index>.message>.messageBot>.messageBotSon>.messageBotSons>.messageBotSonsRight{
+    width: 155px;
+    height: 25px;
+    /*background-color: darkblue;*/
+    float: left;
+    margin-top: 5px;
+    text-align: right;
+    font-size: 18px;
+    color: #a3a3a3;
   }
 
 
