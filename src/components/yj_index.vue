@@ -8,7 +8,7 @@
         <div class="search">
           <div class="search_tu"></div>
           <div class="search_input">
-            <input type="text" value="搜索">
+            <input type="text" placeholder="搜索">
           </div>
         </div>
         <div class="user"></div>
@@ -94,7 +94,7 @@
           </div>
           <div class="balanceBGWord">
             <p>通宝账户(元)</p>
-            <p>8000</p>
+            <p>{{ tbzhye }}</p>
           </div>
         </div>
         <div class="balanceBG">
@@ -103,7 +103,7 @@
           </div>
           <div class="balanceBGWord">
             <p>麦宝账户(元)</p>
-            <p>8000</p>
+            <p>{{ mbzhye }}</p>
           </div>
         </div>
         <div class="balanceBG">
@@ -112,7 +112,7 @@
           </div>
           <div class="balanceBGWord">
             <p>额度账户(元)</p>
-            <p>8000</p>
+            <p>{{ edzhye }}</p>
           </div>
         </div>
         <div class="balanceBG">
@@ -121,7 +121,7 @@
           </div>
           <div class="balanceBGWord">
             <p>现金账户(元)</p>
-            <p>8000</p>
+            <p>{{ xjzhye }}</p>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@
       <div class="cardBot">
         <div class="cardBotSon">
           <p>卡卷(个)</p>
-          <p>3</p>
+          <p>{{ cardNum }}</p>
         </div>
         <div class="cardBotSon">
           <img src="../assets/images/index/kj1.png" alt="卡卷1">
@@ -172,11 +172,11 @@
               麦宝账户额度变化
             </div>
             <div class="messageBotSonsRight">
-              08-10 22:00
+              {{ mbTime }}
             </div>
           </div>
           <div class="messageBotSons">
-            <p>麦宝账户增加10000元，请核对您的余额。</p>
+            <p>麦宝账户增加{{ mbAdd }}元，请核对您的余额。</p>
           </div>
         </div>
         <div class="messageBotSon">
@@ -188,11 +188,11 @@
               商品促销通知
             </div>
             <div class="messageBotSonsRight">
-              08-10 22:00
+              {{ spTime }}
             </div>
           </div>
           <div class="messageBotSons">
-            <p>麦宝账户增加10000元，请核对您的余额。</p>
+            <p>麦宝账户增加{{ spAdd }}元，请核对您的余额。</p>
           </div>
         </div>
         <div class="messageBotSon">
@@ -204,16 +204,16 @@
               现金账户额度变化
             </div>
             <div class="messageBotSonsRight">
-              08-10 22:00
+              {{ xjTime }}
             </div>
           </div>
           <div class="messageBotSons">
-            <p>现金账户增加10000元，请核对您的余额。</p>
+            <p>现金账户增加{{ xjAdd }}元，请核对您的余额。</p>
           </div>
         </div>
       </div>
     </div>
-    
+
   </div>
 
 </template>
@@ -224,13 +224,45 @@
     name: 'yj_index',
     data: function () {
       return {
-          msg: 'Welcome to my App!'
+        msg: 'Welcome to my App!',
+        tbzhye: 0,
+        mbzhye: 0,
+        edzhye: 0,
+        xjzhye: 0,
+        cardNum: 0,
+        mbAdd:0,
+        mbTime: '',
+        spAdd: 0,
+        spTime: '',
+        xjAdd: 0,
+        xjTime: ''
       }
     },
-    methods: {
-      getData: function () {
-        
-      }
+    mounted: function () {
+      this.$http.get('http://127.0.0.1:5000/yj_index', {
+
+      }).then((response) => {
+        console.log(response.status);
+        if(parseInt(response.status) === 200){
+          console.log(response.data)
+          let yj_index = response.data.data;
+          console.log(yj_index)
+          this.tbzhye = yj_index.tbzhye;
+          this.mbzhye = yj_index.mbzhye;
+          this.edzhye = yj_index.edzhye;
+          this.xjzhye = yj_index.xjzhye;
+          this.cardNum = yj_index.cardNum;
+          this.mbAdd = yj_index.mbAdd;
+          this.mbTime = yj_index.mbTime;
+          this.spAdd = yj_index.spAdd;
+          this.spTime = yj_index.spTime;
+          this.xjAdd = yj_index.xjAdd;
+          this.xjTime = yj_index.xjTime;
+
+        }
+      }).catch((error) => {
+        console.log(error)
+      })
     }
   }
 
