@@ -78,6 +78,11 @@
 
 <!--样式-->
 <style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+
   #yj_topUP{
     background-color: #fc6b1b;
     width: 750px;

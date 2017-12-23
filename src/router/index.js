@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import yj from '@/components/yj'
 import yj_index from '@/components/yj_index'
 import yj_topUP from '@/components/yj_topUP'
+import yj_transferAccounts from '@/components/yj_transferAccounts'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/yj_topUP',
       name: 'yj_topUP',
       component: yj_topUP
+    },
+    {
+      path: '/yj_transferAccounts',
+      name: 'yj_transferAccounts',
+      component: yj_transferAccounts
     }
   ]
 })

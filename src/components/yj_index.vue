@@ -239,6 +239,7 @@
       }
     },
     mounted: function () {
+      let that = this;
       this.$http.get('http://127.0.0.1:5000/yj_index', {
 
       }).then((response) => {
@@ -247,17 +248,16 @@
           console.log(response.data)
           let yj_index = response.data.data;
           console.log(yj_index)
-          this.tbzhye = yj_index.tbzhye;
-          this.mbzhye = yj_index.mbzhye;
-          this.edzhye = yj_index.edzhye;
-          this.xjzhye = yj_index.xjzhye;
-          this.cardNum = yj_index.cardNum;
-          this.mbAdd = yj_index.mbAdd;
-          this.mbTime = yj_index.mbTime;
-          this.spAdd = yj_index.spAdd;
-          this.spTime = yj_index.spTime;
-          this.xjAdd = yj_index.xjAdd;
-          this.xjTime = yj_index.xjTime;
+          that.tbzhye = yj_index.tbzhye;
+          that.mbzhye = yj_index.mbzhye;
+          that.edzhye = yj_index.edzhye;
+          that.xjzhye = yj_index.xjzhye;
+          that.cardNum = yj_index.cardNum;
+          that.mbAdd = yj_index.mbAdd;
+          that.mbTime = yj_index.mbTime;
+          that.spTime = yj_index.spTime;
+          that.xjAdd = yj_index.xjAdd;
+          that.xjTime = yj_index.xjTime;
 
         }
       }).catch((error) => {
