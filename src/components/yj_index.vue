@@ -14,7 +14,7 @@
         <div class="user"></div>
       </div>
       <div class="header_fun">
-        <div class="fun">
+        <div class="fun" @click="backCZ">
           <div class="fun_tu" id="recharge">
             <img src="../assets/images/index/index_recharge.png" alt="">
           </div>
@@ -263,6 +263,11 @@
       }).catch((error) => {
         console.log(error)
       })
+    },
+    methods: {
+      backCZ: function () {
+        window.location.href = 'http://localhost:8080/#/yj_topUP';
+      }
     }
   }
 
