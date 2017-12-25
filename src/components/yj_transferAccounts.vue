@@ -3,7 +3,7 @@
   <div id="yj_transferAccounts">
     <div class="blank"></div>
     <div class="backPro">
-      <div class="rBack">
+      <div class="rBack" @click="backPro">
         <img src="../assets/images/transferAccounts/lBack.png" alt="返回">
       </div>
       <div class="zzTitle">
@@ -52,62 +52,65 @@
       <p>&nbsp;最近转账人员</p>
     </div>
     <div class="trPersonClassify">
-      <div>
+      <div v-for="item in current_transfer_account">
         <div class="logo">
-          <img src="../assets/images/transferAccounts/user1.png" alt="用户">
+          <img v-bind:src="item.userLogo"  alt="用户">
         </div>
         <div class="name">
-          {{ user[0].way }}-{{ user[0].user }}-{{ user[0].classify }}-{{ user[0].use }}
+          {{ item.way }}-{{ item.username }}-{{ item.classify}}-{{ item.use }}
+          <!--{{ user[0].way }}-{{ user[0].user }}-{{ user[0].classify }}-{{ user[0].use }}-->
         </div>
         <div class="time">
-          2017-12-12 22:00
+          <!--2017-12-12 22:00-->
+          {{ item.time }}
         </div>
         <div class="money">
-          -900.00
+          -{{ item.money }}
         </div>
       </div>
-      <div>
-        <div class="logo">
-          <img src="../assets/images/transferAccounts/user2.png" alt="用户">
-        </div>
-        <div class="name">
-          {{ user[1].way }}-{{ user[1].user }}-{{ user[1].classify }}-{{ user[1].use }}
-        </div>
-        <div class="time">
-          2017-12-12 22:00
-        </div>
-        <div class="money">
-          -900.00
-        </div>
-      </div>
-      <div>
-        <div class="logo">
-          <img src="../assets/images/transferAccounts/user3.png" alt="用户">
-        </div>
-        <div class="name">
-          {{ user[2].way }}-{{ user[2].user }}-{{ user[2].classify }}-{{ user[2].use }}
-        </div>
-        <div class="time">
-          2017-12-12 22:00
-        </div>
-        <div class="money">
-          -900.00
-        </div>
-      </div>
-      <div>
-        <div class="logo">
-          <img src="../assets/images/transferAccounts/user4.png" alt="用户">
-        </div>
-        <div class="name">
-          {{ user[3].way }}-{{ user[3].user }}-{{ user[3].classify }}-{{ user[3].use }}
-        </div>
-        <div class="time">
-          2017-12-12 22:00
-        </div>
-        <div class="money">
-          -900.00
-        </div>
-      </div>
+      <!--<div>-->
+        <!--<div class="logo">-->
+          <!--<img src="../assets/images/transferAccounts/user2.png" alt="用户">-->
+        <!--</div>-->
+        <!--<div class="name">-->
+          <!--&lt;!&ndash;{{ item }}&ndash;&gt;-->
+          <!--&lt;!&ndash;{{ user[1].way }}-{{ user[1].user }}-{{ user[1].classify }}-{{ user[1].use }}&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="time">-->
+          <!--2017-12-12 22:00-->
+        <!--</div>-->
+        <!--<div class="money">-->
+          <!-- -900.00-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<div class="logo">-->
+          <!--<img src="../assets/images/transferAccounts/user3.png" alt="用户">-->
+        <!--</div>-->
+        <!--<div class="name">-->
+          <!--&lt;!&ndash;{{ user[2].way }}-{{ user[2].user }}-{{ user[2].classify }}-{{ user[2].use }}&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="time">-->
+          <!--2017-12-12 22:00-->
+        <!--</div>-->
+        <!--<div class="money">-->
+          <!-- -900.00-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<div class="logo">-->
+          <!--<img src="../assets/images/transferAccounts/user4.png" alt="用户">-->
+        <!--</div>-->
+        <!--<div class="name">-->
+          <!--&lt;!&ndash;{{ user[3].way }}-{{ user[3].user }}-{{ user[3].classify }}-{{ user[3].use }}&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="time">-->
+          <!--2017-12-12 22:00-->
+        <!--</div>-->
+        <!--<div class="money">-->
+          <!-- -900.00-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
 
@@ -123,13 +126,7 @@
         tbzhye: 0,
         mbzhye: 0,
         xjzhye: 0,
-        user: [],
-        // userLogo: '',
-        // way: '',
-        // username: '',
-        // classify: '',
-        // use: '',
-        // money: 0
+        current_transfer_account: []
       }
     },
     mounted: function () {
@@ -137,22 +134,32 @@
       this.$http.get('http://127.0.0.1:5000/yj_transferAccounts', {
 
       }).then(function (response) {
-        console.log(response.status)
+        console.log(response.status);
+
         if(parseInt(response.status) === 200){
           // console.log(response.data)
           let data = response.data.data;
-          // console.log(data);
+           console.log(data);
           that.tbzhye = data.tbzhye;
           that.mbzhye = data.mbzhye;
           that.xjzhye = data.xjzhye;
-          that.user = data.user;
-          // for (let user of users) {
-          //   console.log(user)
-          // }
+          // that.current_transfer_account = data.data.current_transfer_account;
+          console.log(data.current_transfer_account);
+          for(let i=0; i<data.current_transfer_account.length; i++) {
+            // console.log(data.current_transfer_account[i].to);
+            that.current_transfer_account.push(data.current_transfer_account[i].to);
+          }
+          console.log(that.current_transfer_account)
+
         }
       }).catch(function (error) {
         console.log(error);
       })
+    },
+    methods: {
+      backPro: function () {
+        window.location.href = 'http://localhost:8080/#/yj_index';
+      }
     }
   }
 

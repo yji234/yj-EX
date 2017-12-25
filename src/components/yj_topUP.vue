@@ -3,7 +3,7 @@
   <div id="yj_topUP">
     <div class="blank"></div>
     <div class="backPro">
-      <div class="rBack">
+      <div class="rBack" @click="backPro">
         <img src="../assets/images/topUP/lBack.png" alt="返回">
       </div>
       <div class="czTitle">
@@ -70,6 +70,11 @@
     data: function () {
       return {
           msg: 'Welcome to my App!'
+      }
+    },
+    methods: {
+      backPro: function () {
+        window.location.href = 'http://localhost:8080/#/yj_index';
       }
     }
   }

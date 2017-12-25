@@ -20,7 +20,7 @@
           </div>
           <div class="fun_word">充值</div>
         </div>
-        <div class="fun">
+        <div class="fun" @click="backAccount">
           <div class="fun_tu" id="transfer_account">
             <img src="../assets/images/index/index_transfer_account.png" alt="">
           </div>
@@ -267,6 +267,9 @@
     methods: {
       backCZ: function () {
         window.location.href = 'http://localhost:8080/#/yj_topUP';
+      },
+      backAccount: function () {
+        window.location.href = 'http://localhost:8080/#/yj_transferAccounts';
       }
     }
   }
