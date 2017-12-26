@@ -6,6 +6,8 @@ import yj_index from '@/components/yj_index'
 import yj_topUP from '@/components/yj_topUP'
 import yj_transferAccounts from '@/components/yj_transferAccounts'
 import yj_transferAccount_nochoise from '@/components/yj_transferAccount_nochoise'
+import yj_transferAccount_choise from '@/components/yj_transferAccount_choise'
+
 
 Vue.use(Router)
 
@@ -40,6 +42,11 @@ export default new Router({
       path: '/yj_transferAccount_nochoise',
       name: 'yj_transferAccount_nochoise',
       component: yj_transferAccount_nochoise
+    },
+    {
+      path: '/yj_transferAccount_choise',
+      name: 'yj_transferAccount_choise',
+      component: yj_transferAccount_choise
     }
   ]
 })
