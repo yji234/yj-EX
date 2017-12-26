@@ -39,8 +39,8 @@
         <div class="account_money_word">
           可用余额
         </div>
-        <div class="account_money_input" v-model="remain_money_input">
-          20000.00
+        <div class="account_money_input">
+          {{ remain_money_input }}
         </div>
       </div>
       <div>
@@ -81,7 +81,7 @@
       </div>
     </div>
     <div class="apply_account">
-      <button>下一步</button>
+      <button type="button" @click="applyAccount">下一步</button>
     </div>
   </div>
 
@@ -94,11 +94,47 @@
     data: function () {
       return {
         msg: 'Welcome to my App!',
-        account_username_input: '',
+        account_username_input: '', // 户名
         remain_money_input: '',    // 可用余额
         account_money_input: '',    // 转账金额
         remark_input: '',            // 备注
         verify_code_input: ''       // 验证码
+      }
+    },
+    mounted: function () {
+      let that = this;
+      this.$http.get('http://127.0.0.1:5000/yj_transferAccount_nochoise', {
+
+      }).then(function (response) {
+        // console.log(response.status);
+        if(parseInt(response.status) == 200){
+          // console.log(response.data)
+          let transferAccount_nochoise = response.data.data;
+          console.log(transferAccount_nochoise)
+          that.account_username_input = transferAccount_nochoise.account_username_input;
+          that.remain_money_input = transferAccount_nochoise.remain_money_input;
+          that.account_money_input = transferAccount_nochoise.account_money_input;
+          that.remark_input = transferAccount_nochoise.remark_input;
+          that.verify_code_input = transferAccount_nochoise.verify_code_input;
+        }
+
+      }).catch(function (error) {
+        console.log(error);
+      })
+    },
+    methods: {
+      applyAccount: function () {
+        let that = this;
+        this.$http.post('http://127.0.0.1:5000/yj_transferAccount_nochoise',{
+          account_username_input: that.account_username_input,
+          account_money_input: that.account_money_input,
+          remark_input: that.remark_input,
+          verify_code_input: that.verify_code_input
+        }).then(function (response) {
+          console.log(response.data);
+        }).catch(function (error) {
+
+        })
       }
     }
   }
