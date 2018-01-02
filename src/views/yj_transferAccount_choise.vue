@@ -173,6 +173,10 @@
 
 <!--样式-->
 <style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
   #yj_transferAccount_choise{
     width: 750px;
     height: 1334px;
