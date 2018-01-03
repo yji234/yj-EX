@@ -3,8 +3,13 @@
   <div class="yj_myWallet">
     <div class="header">
       <yj_header :header="headerData"></yj_header>
-      <div></div>
-      <div></div>
+      <div class="user">
+        <div class="userLogo">
+          <img src="../assets/images/myWallet/userLogo.png" alt="用户">
+        </div>
+        <div class="username">杨娇</div>
+      </div>
+      <div class="classify"></div>
     </div>
     <div class="content"></div>
   </div>
@@ -46,11 +51,40 @@
 </script>
 
 <!--样式-->
-<style>
+<style lang="less">
+  @myWalletBG: #FF7400;
   .yj_myWallet{
     width: 750px;
     max-height: 1340px;
     overflow-y: scroll;
+
+    .header{
+        background-color: @myWalletBG;
+        .user{
+          width: 150px;
+          height: 200px;
+          /*background-color: seagreen;*/
+          margin: 0 auto;
+
+          .userLogo{
+            width: 145px;
+            height: 145px;
+            /*background-color: skyblue;*/
+            margin-left: auto;
+            margin-bottom: 10px;
+          }
+
+          .username{
+            width: 100%;
+            height: 45px;
+            /*background-color: sienna;*/
+            text-align: center;
+            font-size: 35px;
+            color: #ffffff;
+          }
+        }
+
+    }
   }
 
 </style>
