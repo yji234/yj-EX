@@ -68,49 +68,7 @@
           -{{ item.money }}
         </div>
       </div>
-      <!--<div>-->
-        <!--<div class="logo">-->
-          <!--<img src="../assets/images/transferAccounts/user2.png" alt="用户">-->
-        <!--</div>-->
-        <!--<div class="name">-->
-          <!--&lt;!&ndash;{{ item }}&ndash;&gt;-->
-          <!--&lt;!&ndash;{{ user[1].way }}-{{ user[1].user }}-{{ user[1].classify }}-{{ user[1].use }}&ndash;&gt;-->
-        <!--</div>-->
-        <!--<div class="time">-->
-          <!--2017-12-12 22:00-->
-        <!--</div>-->
-        <!--<div class="money">-->
-          <!-- -900.00-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div>-->
-        <!--<div class="logo">-->
-          <!--<img src="../assets/images/transferAccounts/user3.png" alt="用户">-->
-        <!--</div>-->
-        <!--<div class="name">-->
-          <!--&lt;!&ndash;{{ user[2].way }}-{{ user[2].user }}-{{ user[2].classify }}-{{ user[2].use }}&ndash;&gt;-->
-        <!--</div>-->
-        <!--<div class="time">-->
-          <!--2017-12-12 22:00-->
-        <!--</div>-->
-        <!--<div class="money">-->
-          <!-- -900.00-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div>-->
-        <!--<div class="logo">-->
-          <!--<img src="../assets/images/transferAccounts/user4.png" alt="用户">-->
-        <!--</div>-->
-        <!--<div class="name">-->
-          <!--&lt;!&ndash;{{ user[3].way }}-{{ user[3].user }}-{{ user[3].classify }}-{{ user[3].use }}&ndash;&gt;-->
-        <!--</div>-->
-        <!--<div class="time">-->
-          <!--2017-12-12 22:00-->
-        <!--</div>-->
-        <!--<div class="money">-->
-          <!-- -900.00-->
-        <!--</div>-->
-      <!--</div>-->
+
     </div>
   </div>
 

@@ -10,6 +10,7 @@ import yj_transferAccount_nochoise from '@/views/yj_transferAccount_nochoise'
 import yj_transferAccount_choise from '@/views/yj_transferAccount_choise'
 import yj_accountList from '@/views/yj_accountList'
 // import yj_list from '../components/yj_list'
+import yj_myWallet from '../views/yj_myWallet'
 
 
 Vue.use(Router);
@@ -56,6 +57,11 @@ export default new Router({
       path: '/yj_accountList',
       name: 'yj_accountList',
       component: yj_accountList
+    },
+    {
+      path: '/yj_myWallet',
+      name: 'yj_myWallet',
+      component: yj_myWallet
     }
 
   ]
