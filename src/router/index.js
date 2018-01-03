@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Less from 'less'
 import HelloWorld from '@/components/HelloWorld'
 import yj from '@/components/yj'
 import yj_index from '@/views/yj_index'
@@ -11,7 +12,8 @@ import yj_accountList from '@/views/yj_accountList'
 // import yj_list from '../components/yj_list'
 
 
-Vue.use(Router)
+Vue.use(Router);
+Vue.use(Less);
 
 export default new Router({
   routes: [

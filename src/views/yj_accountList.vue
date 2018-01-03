@@ -29,45 +29,25 @@
     </div>
     <!--每一个记录-->
     <div class="persons">
-      <div class="person_list">
-        <div class="user_logo"></div>
-        <div class="date_use"></div>
-        <div class="money"></div>
-      </div>
-      <div class="person_list"></div>
-      <div class="person_list"></div>
-      <div class="person_list"></div>
-      <div class="person_list"></div>
-      <div class="person_list"></div>
-      <div class="person_list"></div>
+      <yj_list v-bind:list="listData"></yj_list>
     </div>
-
-
-
-    <yj_list></yj_list>
-
 
   </div>
 
 </template>
 
-<!--Vue-->
+<!--Vue父组件-->
 <script>
 
+  // 引入子组件
   import yj_list from '../components/yj_list'
 
   export default {
-
     name: 'yj_accountList',
+    components: {yj_list},
     data: function () {
       return {
-          msg: 'Welcome to my App!'
-      }
-    },
-    components: {
-      yj_list,
-      props: {
-        msg: String
+        listData: []
       }
     },
     mounted: function () {
@@ -75,9 +55,13 @@
       this.$http.get('/api/yj_accountList', {
 
       }).then(function (response) {
-        console.log(response.status);
-        console.log(response.data);
-
+        let current_list= response.data.data.current_transfer_account;
+        if(parseInt(response.status) === 200){
+          for(var i=0; i<current_list.length; i++){
+            that.listData.push(current_list[i].to)
+          }
+          console.log(that.listData);
+        }
       }).catch(function (error) {
         console.log(error)
       })
@@ -180,35 +164,6 @@
   #yj_accountList>.persons{
     width: 100%;
     height: 1170px;
-    background-color: seagreen;
-  }
-  #yj_accountList>.persons>.person_list{
-    width: 710px;
-    height: 162px;
-    background-color: salmon;
-    border-bottom: 2px solid #ebebeb;
-    margin: 0 auto;
-    position: relative;
-  }
-  #yj_accountList>.persons>.person_list>.user_logo{
-    width: 100px;
-    height: 100px;
-    background-color: skyblue;
-    position: absolute;
-    top: 31px;
-    left: 40px;
-  }
-  #yj_accountList>.persons>.person_list>.date_use{
-    width: 335px;
-    height: 85px;
-    background-color: saddlebrown;
-    position: absolute;
-    top: 39px;
-    left: 150px;
-  }
-  #yj_accountList>.persons>.person_list>.money{
-    width: 160px;
-    height: 45px;
-    background-color: sandybrown;
+    background-color: white;
   }
 </style>
