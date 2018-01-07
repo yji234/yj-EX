@@ -11,7 +11,9 @@
       </div>
       <div class="classify"></div>
     </div>
-    <div class="content"></div>
+    <div class="content">
+      <yj_list_wallet></yj_list_wallet>
+    </div>
   </div>
 
 </template>
@@ -19,10 +21,11 @@
 <!--Vue-->
 <script>
   import yj_header from '../components/yj_header'
+  import yj_list_wallet from '../components/yj_list_wallet'
 
   export default {
     name: 'yj_myWallet',
-    components: {yj_header},
+    components: {yj_header, yj_list_wallet},
     data: function () {
       return {
           headerData: {
