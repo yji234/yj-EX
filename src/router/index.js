@@ -15,7 +15,7 @@ import yj_myWallet from '../views/yj_myWallet'
 
 
 Vue.use(Router);
-Vue.use(Less);
+// Vue.use(Less);
 
 export default new Router({
   routes: [

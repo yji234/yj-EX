@@ -12,7 +12,7 @@
       <div class="classify"></div>
     </div>
     <div class="content">
-      <yj_list_wallet></yj_list_wallet>
+      <yj_list_wallet :accounts="accountArr"></yj_list_wallet>
     </div>
   </div>
 
@@ -31,11 +31,13 @@
           headerData: {
               backArrows: '',
               title: '我的钱包'
-          }
+          },
+          accountArr: []
       }
     },
     mounted: function () {
-        let that = this;
+      let that = this;
+      // Header
       this.$http.get('/api/yj_header', {
 
       }).then((response) => {
@@ -43,10 +45,27 @@
           if(parseInt(response.status) === 200){
             //  console.log(response.data.data);
             that.headerData.backArrows = response.data.data.backArrows_orange;
-            console.log(that.headerData.backArrows)
+            // console.log(that.headerData.backArrows)
           }
       }).catch((error) => {
           console.log(error);
+      });
+
+      // List
+      this.$http.get('/api/yj_list_wallet', {
+
+      }).then((response) => {
+        // console.log(response.data);
+        if(parseInt(response.data.code) === 200){
+          let yj_list_wallet = response.data.data.classify;
+          // console.log(yj_list_wallet)
+          for(var i=0; i<yj_list_wallet.length; i++){
+            that.accountArr.push(yj_list_wallet[i].account);
+          }
+          console.log(that.accountArr);
+        }
+      }).catch((error) => {
+        console.log(error)
       })
     }
   }
@@ -60,9 +79,11 @@
     width: 750px;
     max-height: 1340px;
     overflow-y: scroll;
+    background-color: ghostwhite;
 
     .header{
         background-color: @myWalletBG;
+        margin-bottom: 15px;
         .user{
           width: 150px;
           height: 200px;
@@ -88,6 +109,7 @@
         }
 
     }
+
   }
 
 </style>
